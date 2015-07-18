@@ -22,7 +22,19 @@ module.exports = function(grunt) {
                 ],
                 dest: 'app/js/scripts.js'
             },
+        },
+        jshint: {
+            options: {
+                jshintrc: true
+            },
+            grunt: {
+                src: ['Gruntfile.js']
+            },
+            ngApp: {
+                src: ['<%= concat.ngApp.dest %>']
+            },
         }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 };
