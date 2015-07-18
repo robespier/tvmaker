@@ -4,6 +4,7 @@ tmp/
 
 # Auto-generated content
 app/js/scripts.js
+app/css/styles.css
 
 # Vim
 *.swp

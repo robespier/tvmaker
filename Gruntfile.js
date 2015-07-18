@@ -34,6 +34,17 @@ module.exports = function(grunt) {
                 src: ['<%= concat.ngApp.dest %>']
             },
         },
+        recess: {
+            options: {
+                compile: true,
+                noIDs: true,
+            },
+            dist: {
+                files: {
+                    'app/css/styles.css': ['bower_components/angular-material/angular-material.css', 'src/less/main.less'],
+                },
+            }
+        },
         watch: {
             lintGruntfile: {
                 files: '<%= jshint.grunt.src %>',
@@ -47,9 +58,14 @@ module.exports = function(grunt) {
                 files: ['src/js/**/*.js'],
                 tasks: ['concat:ngApp', 'concat:appBundle']
             },
+            recess: {
+                files: 'src/less/**/*.less',
+                tasks: ['recess']
+            },
         }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-recess');
 };
