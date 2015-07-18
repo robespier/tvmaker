@@ -33,8 +33,23 @@ module.exports = function(grunt) {
             ngApp: {
                 src: ['<%= concat.ngApp.dest %>']
             },
+        },
+        watch: {
+            lintGruntfile: {
+                files: '<%= jshint.grunt.src %>',
+                tasks: ['jshint:grunt']
+            },
+            lintNgApp: {
+                files: '<%= concat.ngApp.dest %>',
+                tasks: ['jshint:ngApp']
+            },
+            ngApp: {
+                files: ['src/js/**/*.js'],
+                tasks: ['concat:ngApp', 'concat:appBundle']
+            },
         }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 };
