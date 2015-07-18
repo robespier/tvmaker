@@ -1,0 +1,16 @@
+{
+  "name": "tvmaker",
+  "version": "0.0.0",
+  "authors": [
+    "Антон Домолазов <anton@domelaz.ru>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
