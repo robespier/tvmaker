@@ -1,2 +1,9 @@
 bower_components/
 node_modules/
+tmp/
+
+# Auto-generated content
+app/js/scripts.js
+
+# Vim
+*.swp
