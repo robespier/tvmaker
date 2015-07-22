@@ -8,6 +8,7 @@ module.exports = function(grunt) {
                     footer: '})(angular);'
                 },
                 src: [
+                    'src/js/main.js',
                     'src/js/**/*.js'
                 ],
                 dest: 'tmp/app.js'
