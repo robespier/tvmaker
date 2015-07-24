@@ -1,8 +1,11 @@
-var app = angular.module('tvmaker', ['ngMaterial']);
+var app = angular.module('tvmaker', ['ngMaterial', 'LocalStorageModule']);
 
-app.config(function($mdThemingProvider) {
+app.config(function($mdThemingProvider, localStorageServiceProvider) {
     $mdThemingProvider
         .theme('default')
         .primaryPalette('teal')
         .accentPalette('red');
+
+    localStorageServiceProvider
+        .setPrefix('tvm');
 });
