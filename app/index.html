@@ -21,7 +21,45 @@
                                     <textarea ng-change="setChannelContent(channel)" ng-model="channel.content" ng-model-options="{debounce: 1500}"></textarea>
                                 </div>
                                 <div flex="30" class="pane md-whiteframe-z2">
-                                    <div ng-bind="strings.lRules"></div>
+                                    <md-list>
+                                        <md-subheader class="md-no-sticky">Global Rules</md-subheader>
+                                        <md-list-item class="md-2-line">
+                                            <div class="md-list-item-text">
+                                                <h3>Разметка файла по дням недели</h3>
+                                                <p class="md-warn" style="color: red;">Ошибка: не обнаружено пятницы, субботы, воскресенья</p>
+                                            </div>
+                                                <md-checkbox class="md-secondary"></md-checkbox>
+                                        </md-list-item>
+                                        <md-list-item class="md-2-line">
+                                            <div class="md-list-item-text">
+                                                <h3>Группировка передач</h3>
+                                                <p class="md-warn" style="color: gray;">Зависит от: <a href="#">"Разметки файла..."</a></p>
+                                            </div>
+                                                <md-checkbox class="md-secondary"></md-checkbox>
+                                        </md-list-item>
+                                        <md-list-item class="md-2-line">
+                                            <div class="md-list-item-text">
+                                                <h3>Подбор в строку</h3>
+                                            </div>
+                                                <md-checkbox class="md-secondary"></md-checkbox>
+                                        </md-list-item>
+                                        <md-divider ></md-divider>
+                                        <md-subheader class="md-no-sticky">Line Rules</md-subheader>
+                                        <md-list-item class="md-2-line">
+                                            <div class="md-list-item-text">
+                                                <h3>Формат времени</h3>
+                                                <p class="md-warn" style="color: green;">00:00; (134 замены)</p>
+                                                <md-checkbox class="md-secondary"></md-checkbox>
+                                            </div>
+                                        </md-list-item>
+                                        <md-list-item class="md-2-line">
+                                            <div class="md-list-item-text">
+                                                <h3>16+</h3>
+                                                <p>Возрастные ограничения</p>
+                                                <md-checkbox class="md-secondary"></md-checkbox>
+                                            </div>
+                                        </md-list-item>
+                                    </md-list>
                                 </div>
                                 <div flex class="pane md-whiteframe-z1">
                                     <div ng-bind="strings.lPreview"></div>
