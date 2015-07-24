@@ -8,12 +8,29 @@
         <div layout="row" >
             <div class="ad">AdWords</div>
         </div>
-        <div layout="row" layout-align="center center">
-            <div flex="45" class="pane pane-source">Source</div>
-            <div flex="45" class="pane pane-preview">Preview</div>
-        </div>
-        <div layout="row">
-            <div class="controls">Controls</div>
+        <div ng-controller="ctrlChannels">
+            <div layout="row">
+                <md-tabs class="channels-heading" md-dynamic-height="true">
+                    <md-tab ng-repeat="channel in channels">
+                        <md-tab-label>
+                            {{channel.title}}
+                        </md-tab-label>
+                        <md-tab-body>
+                            <div layout="row">
+                                <div flex class="pane pane-source md-whiteframe-z1">
+                                    <textarea ng-change="setChannelContent(channel)" ng-model="channel.content" ng-model-options="{debounce: 1500}"></textarea>
+                                </div>
+                                <div flex="30" class="pane md-whiteframe-z2">
+                                    <div ng-bind="strings.lRules"></div>
+                                </div>
+                                <div flex class="pane md-whiteframe-z1">
+                                    <div ng-bind="strings.lPreview"></div>
+                                </div>
+                            </div>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+            </div>
         </div>
         <script src="js/scripts.js"></script>
     </body>
