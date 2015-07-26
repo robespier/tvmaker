@@ -20,6 +20,9 @@ function ctrlChannels($scope, localStorageService, strings) {
     };
 
     $scope.strings = strings;
+
+    $scope.build = function() {
+    };
 }
 
 app.controller('ctrlChannels', ['$scope', 'localStorageService', 'strings', ctrlChannels]);
