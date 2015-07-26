@@ -10,7 +10,7 @@
         </div>
         <div ng-controller="ctrlChannels">
             <div layout="row">
-                <md-tabs class="channels-heading" md-dynamic-height="true">
+                <md-tabs class="channels-heading" md-dynamic-height="true" md-selected="activeChannel">
                     <md-tab ng-repeat="channel in channels">
                         <md-tab-label>
                             {{channel.title}}

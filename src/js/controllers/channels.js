@@ -13,6 +13,8 @@ function ctrlChannels($scope, localStorageService, strings) {
     ];
     $scope.channels = channels;
 
+    $scope.activeChannel = 5;
+
     $scope.setChannelContent = function() {
         ls.set('channels', angular.toJson($scope.channels));
     };
