@@ -43,16 +43,16 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
             {
                 'fn': 'replace',
                 'view': {
-                    'title': "Удалять дату из строк с именем дня недели",
-                    'desc': "Оставлять только слова 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'."
+                    'title': strings.rules.replace.title,
+                    'desc': strings.rules.replace.desc
                 },
                 'params': []
             },
             {
                 'fn': 'dropEmptyLines',
                 'view': {
-                    'title': 'Удаление пустых строк',
-                    'desc': 'Будут удалены совершенно пустые строчки. Сохранятся строчки, состоящие только из пробелов или табуляций.'
+                    'title': strings.rules.dropEmptyLines.title,
+                    'desc': strings.rules.dropEmptyLines.desc
                 },
                 'params': []
             },
