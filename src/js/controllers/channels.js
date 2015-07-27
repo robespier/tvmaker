@@ -70,6 +70,13 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
         }
 
         /**
+         * Правил может не быть совсем
+         */
+        if (angular.isUndefined(channel.rules) || channel.rules.length === 0) {
+            return;
+        }
+
+        /**
          * Разбить содержимое на строки.
          * Разделитель по умолчанию -- перевод строки, может
          * быть переопределен в настройке канала.
@@ -77,10 +84,10 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
         var splitter = channel.lineSplitter || '\n';
         var sc = cc.split(splitter);
 
-        var userRules = fetchChannelRules(channel);
-
-        userRules.forEach(function(r) {
-            sc = tvmRules[r.fn](sc, r.params);
+        channel.rules.forEach(function(r) {
+            if (r.active) {
+                sc = tvmRules[r.fn](sc, r.params);
+            }
         });
 
         // Результат работы правил -- содержимое правой колонки
