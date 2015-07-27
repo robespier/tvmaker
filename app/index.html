@@ -17,8 +17,8 @@
                         </md-tab-label>
                         <md-tab-body>
                             <div layout="row">
-                                <div flex class="pane pane-source md-whiteframe-z1">
-                                    <textarea ng-change="setChannelContent(channel)" ng-model="channel.content" ng-model-options="{debounce: 1500}"></textarea>
+                                <div flex class="md-whiteframe-z1">
+                                    <tvm-source class="pane pane-source"></tvm-source>
                                 </div>
                                 <div flex="30" class="pane md-whiteframe-z2">
                                     <md-list>

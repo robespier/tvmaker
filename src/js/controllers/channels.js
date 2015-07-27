@@ -59,6 +59,16 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
         ];
     }
 
+    /**
+     * Разбить содержимое на строки.
+     * Разделитель по умолчанию -- перевод строки, может
+     * быть переопределен в настройке канала.
+     */
+    $scope.splitChannel = function(channel) {
+        var splitter = channel.lineSplitter || '\n';
+        return channel.content.split(splitter);
+    };
+
     function buildChannel(channel) {
         /**
          * Содержимое левой колонки
@@ -76,13 +86,7 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
             return;
         }
 
-        /**
-         * Разбить содержимое на строки.
-         * Разделитель по умолчанию -- перевод строки, может
-         * быть переопределен в настройке канала.
-         */
-        var splitter = channel.lineSplitter || '\n';
-        var sc = cc.split(splitter);
+        var sc = $scope.splitChannel(channel);
 
         channel.rules.forEach(function(r) {
             if (r.active) {

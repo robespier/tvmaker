@@ -5,6 +5,7 @@ app.value('strings', {
     lAlga: 'Сборка',
     lRules: 'Правила',
     lPreview: 'Предпросмотр',
+    lCopyHere: 'Скопируйте сюда канал',
     rules: {
         replace: {
             'title': "Удалять дату из строк с именем дня недели",
