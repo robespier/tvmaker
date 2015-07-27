@@ -14,6 +14,12 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     $scope.channels = channels;
 
     $scope.activeChannel = 5;
+    /**
+     * Обновлять правила при смене канала
+     */
+    $scope.$watch('activeChannel', function(current) {
+        $scope.channels[current - 1].rules = fetchChannelRules(current);
+    });
 
     $scope.setChannelContent = function() {
         ls.set('channels', angular.toJson($scope.channels));
@@ -35,13 +41,21 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     function fetchChannelRules() {
         return [
             {
+                'fn': 'replace',
+                'view': {
+                    'title': "Удалять дату из строк с именем дня недели",
+                    'desc': "Оставлять только слова 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'."
+                },
+                'params': []
+            },
+            {
                 'fn': 'dropEmptyLines',
-                'params': [
-                    {
-                        'title': 'Замена пустых строк'
-                    }
-                ]
-            }
+                'view': {
+                    'title': 'Удаление пустых строк',
+                    'desc': 'Будут удалены совершенно пустые строчки. Сохранятся строчки, состоящие только из пробелов или табуляций.'
+                },
+                'params': []
+            },
         ];
     }
 
