@@ -7,10 +7,17 @@ app.directive('tvmRule', function() {
                 return;
             }
             scope.rule.active = current;
+
+            var thisRule = scope.channel.rules[scope.$index];
+
+            /**
+             * Применить правило к активному каналу
+             */
+            scope.buildActive(thisRule);
+
             /**
              * Подсветим результаты (если есть)
              */
-            var thisRule = scope.channel.rules[scope.$index];
             if (angular.isArray(thisRule.matchesSrc) || angular.isArray(thisRule.matchesPre)) {
                 scope.renderRule(thisRule, current);
             }

@@ -35,6 +35,14 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     };
 
     /**
+     * Применить правила к активному каналу
+     */
+    $scope.buildActive = function() {
+        var active = $scope.channels[$scope.activeChannel];
+        buildChannel(active);
+    };
+
+    /**
      * Забрать правила для канала
      * Заглушка, будут подгружаться пользовательские правила
      */
