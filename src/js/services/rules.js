@@ -1,13 +1,17 @@
 function tvmRules(_) {
     var rules = {
-        'replace': function(source) {
-            return source;
+        'replace': {
+            process: function(source) {
+                return source;
+            }
         }, 
-        'dropEmptyLines': function(source) {
-            var result = _.filter(source, function(l) {
-                return l.length > 0;
-            });
-            return result;
+        'dropEmptyLines': {
+            process: function(source) {
+                var result = _.filter(source, function(l) {
+                    return l.length > 0;
+                });
+                return result;
+            }
         }
     };
 

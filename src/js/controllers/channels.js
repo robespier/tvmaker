@@ -90,7 +90,7 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
 
         channel.rules.forEach(function(r) {
             if (r.active) {
-                sc = tvmRules[r.fn](sc, r.params);
+                sc = tvmRules[r.fn].process(sc, r.params);
             }
         });
 
