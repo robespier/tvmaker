@@ -8,6 +8,12 @@
 app.directive('tvmSource', function($compile, $timeout) {
     var link = function(scope, element) {
         var debounceValue = 500;
+        
+        /**
+         * Как <div> превращается в <textarea>
+         */
+        var transformTrigger = 'dblclick';
+        
         /**
          * Формирование <textarea> (режим редактирования)
          */
@@ -20,7 +26,7 @@ app.directive('tvmSource', function($compile, $timeout) {
             element[0].innerHTML = textarea;
             $compile(element.contents())(scope);
             textarea = element.find('textarea');
-            element.off('click');
+            element.off(transformTrigger);
             textarea.on('blur', setContents);
             textarea.focus();
         }
@@ -53,11 +59,11 @@ app.directive('tvmSource', function($compile, $timeout) {
                 content +='</div>';
                 element[0].innerHTML = content;
                 $compile(element.contents())(scope);
-                element.on('click', setTextArea);
+                element.on(transformTrigger, setTextArea);
             }, debounceValue + 100);
         }
 
-        element.on('click', setTextArea);
+        element.on(transformTrigger, setTextArea);
 
         /**
          * Подсветка изменений, вызванных определенным правилом
