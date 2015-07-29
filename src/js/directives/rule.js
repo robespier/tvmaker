@@ -6,7 +6,14 @@ app.directive('tvmRule', function() {
             if (angular.isUndefined(current)) {
                 return;
             }
-            scope.rule.active = current; 
+            scope.rule.active = current;
+            /**
+             * Подсветим результаты (если есть)
+             */
+            var thisRule = scope.channel.rules[scope.$index];
+            if (angular.isArray(thisRule.matchesSrc) || angular.isArray(thisRule.matchesPre)) {
+                scope.renderRule(thisRule, current);
+            }
         });
     };
     return {

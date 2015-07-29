@@ -7,9 +7,15 @@ function tvmRules(_) {
         }, 
         'dropEmptyLines': {
             process: function(source) {
-                var result = _.filter(source, function(l) {
-                    return l.length > 0;
-                });
+                var result = [];
+                this.matchesSrc = [];
+                _.forEachRight(source, function(value, index) {
+                    if (value.length === 0) {
+                        this.matchesSrc[index] = [0, -1]; // Строка и диапазон подсветки
+                    } else {
+                        result.unshift(value);
+                    }
+                }, this);
                 return result;
             }
         }

@@ -57,7 +57,27 @@ app.directive('tvmSource', function($compile, $timeout) {
             }, debounceValue + 100);
         }
 
-        element.on('click', setTextArea); 
+        element.on('click', setTextArea);
+
+        /**
+         * Подсветка изменений, вызванных определенным правилом
+         *
+         * @param {object} rule Правило
+         * @param {boolean} state Включение/отключение подсветки
+         */
+        scope.renderRule = function(rule, state) {
+            var src = rule.matchesSrc,
+                lines = element.find('p');
+            src.forEach(function(value,index) {
+                var hl = lines[index];
+                if (state) {
+                    angular.element(hl).addClass('source-line--highlighted');
+                } else {
+                    angular.element(hl).removeClass('source-line--highlighted');
+                }
+            });
+        };
+
     };
     return {
         templateUrl: 'dir/source.html',
