@@ -18,16 +18,18 @@
                         <md-tab-body>
                             <div layout="row">
                                 <div flex class="md-whiteframe-z1">
-                                    <tvm-source class="pane pane-source"></tvm-source>
+                                    <md-subheader class="md-no-sticky">Исходный текст программы канала</md-subheader>
+                                        <tvm-source class="pane pane-source"></tvm-source>
                                 </div>
-                                <div flex="30" class="pane md-whiteframe-z2">
+                                <div flex="40" class="pane md-whiteframe-z2">
                                     <md-list>
-                                        <md-subheader class="md-no-sticky">Any Rules</md-subheader>
+                                        <md-subheader class="md-no-sticky">Правила для текста</md-subheader>
                                         <tvm-rule ng-repeat="rule in channel.rules" tvm-title="{{rule.view.title}}" tvm-descr="{{rule.view.desc}}"></tvm-rule>
                                     </md-list>
                                 </div>
                                 <div flex class="pane md-whiteframe-z1">
-                                    <div ng-bind="channel.preview"></div>
+                                    <md-subheader class="md-no-sticky">Текст с примененными правилами</md-subheader>
+                                        <div ng-bind="channel.preview"></div>
                                 </div>
                             </div>
                         </md-tab-body>
