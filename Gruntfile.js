@@ -26,6 +26,14 @@ module.exports = function(grunt) {
                 dest: 'app/js/scripts.js'
             },
         },
+        copy: {
+            fonts: {
+                expand: true,
+                cwd: 'bower_components/roboto-fontface/fonts/',
+                src: '**',
+                dest: 'app/fonts/'
+            }
+        },
         jshint: {
             options: {
                 jshintrc: true
@@ -68,6 +76,7 @@ module.exports = function(grunt) {
         }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-recess');

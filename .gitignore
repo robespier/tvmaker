@@ -6,5 +6,7 @@ tmp/
 app/js/scripts.js
 app/css/styles.css
 
+app/fonts/
+
 # Vim
 *.swp
