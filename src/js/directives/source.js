@@ -29,6 +29,21 @@ app.directive('tvmSource', function($compile, $timeout) {
             element.off(transformTrigger);
             textarea.on('blur', setContents);
             textarea.focus();
+            textarea.on('paste', autoBlur);
+        }
+
+        /**
+         * Автоматическое снятие фокуса с <textarea> после вставки канала
+         *
+         * После `Ctrl+V` в левой колонке непонятно, что делать дальше.
+         * Пусть инициативу возьмёт приложение.
+         *
+         * Таймаут тут для "солидности", типа, "осмысленная анимация". 
+         */
+        function autoBlur(event) {
+            $timeout(function() {
+                event.target.blur();
+            }, debounceValue);
         }
 
         /**
