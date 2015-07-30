@@ -1,17 +1,16 @@
 function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     var ls = localStorageService;
-    var channels = ls.get('channels') || [];
+    var channels = ls.get('channels') || '[]';
     /**
      * Временная заглушка для LocalStorage
      */
-    channels = [
+    $scope.channels = (channels !== '[]') ? JSON.parse(channels) : [ 
         {title: 'Первый канал'},
         {title: 'Россия'},
         {title: 'CTC'},
         {title: 'Вариант'},
         {title: 'Домашний', lineSplitter: '\n'},
     ];
-    $scope.channels = channels;
 
     $scope.activeChannel = 5;
     /**
