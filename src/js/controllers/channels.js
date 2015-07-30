@@ -46,10 +46,10 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     };
 
     /**
-     * Забрать правила для канала
-     * Заглушка, будут подгружаться пользовательские правила
+     * Амбициозная затея -- если правил нет, то попытаться 
+     * подобрать оптимальные. Но это потом, сейчас просто что есть.
      */
-    function fetchChannelRules() {
+    function guessFromRaw() {
         return [
             {
                 'fn': 'daySplitter',
@@ -68,6 +68,18 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
                 'params': []
             },
         ];
+    }
+
+    /**
+     * Забрать правила для канала
+     */
+    function fetchChannelRules(channelIndex) {
+        var lsRules = ls.get('rules');
+        if (lsRules && lsRules[channelIndex]) {
+            return lsRules[channelIndex];
+        } else {
+            return guessFromRaw();
+        }
     }
 
     /**
