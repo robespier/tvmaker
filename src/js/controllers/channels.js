@@ -49,10 +49,10 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     function fetchChannelRules() {
         return [
             {
-                'fn': 'replace',
+                'fn': 'daySplitter',
                 'view': {
-                    'title': strings.rules.replace.title,
-                    'desc': strings.rules.replace.desc
+                    'title': strings.rules.daySplitter.title,
+                    'desc': strings.rules.daySplitter.desc
                 },
                 'params': []
             },
