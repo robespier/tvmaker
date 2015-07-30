@@ -12,12 +12,16 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
         {title: 'Домашний', lineSplitter: '\n'},
     ];
 
-    $scope.activeChannel = 5;
+    $scope.activeChannel = ls.get('activeChannel') || 0;
+    
     /**
-     * Обновлять правила при смене канала
+     * Смена канала
      */
     $scope.$watch('activeChannel', function(current) {
-        $scope.channels[current - 1].rules = fetchChannelRules(current);
+        if (!angular.isUndefined(current)) {
+            ls.set('activeChannel', current);
+            $scope.channels[current].rules = fetchChannelRules(current);
+        }
     });
 
     $scope.setChannelContent = function() {
