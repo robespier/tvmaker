@@ -5,7 +5,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
      * Временная заглушка для LocalStorage
      */
     $scope.channels = (channels.length > 0) ? channels : [ 
-        {title: 'Первый кана'},
+        {title: 'Первый канал'},
         {title: 'Россия'},
         {title: 'CTC'},
         {title: 'Вариант'},
@@ -20,7 +20,9 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
     $scope.$watch('activeChannel', function(current) {
         if (!angular.isUndefined(current)) {
             ls.set('activeChannel', current);
-            $scope.channels[current].rules = fetchChannelRules(current);
+            if (angular.isUndefined($scope.channels[current].rules)) {
+                $scope.channels[current].rules = guessFromRaw();
+            }
         }
     });
 
@@ -44,6 +46,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
     $scope.buildActive = function() {
         var active = $scope.channels[$scope.activeChannel];
         buildChannel(active);
+        ls.set('channels', $scope.channels);
     };
 
     /**
@@ -69,18 +72,6 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
                 'params': []
             },
         ];
-    }
-
-    /**
-     * Забрать правила для канала
-     */
-    function fetchChannelRules(channelIndex) {
-        var lsRules = ls.get('rules');
-        if (lsRules && lsRules[channelIndex]) {
-            return lsRules[channelIndex];
-        } else {
-            return guessFromRaw();
-        }
     }
 
     /**

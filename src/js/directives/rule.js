@@ -2,6 +2,8 @@ app.directive('tvmRule', function() {
     var link = function(scope, element, attributes) {
         scope.title = attributes['tvmTitle'];
         scope.descr = attributes['tvmDescr'];
+
+        scope.active = scope.rule.active;
         scope.$watch('active', function(current, old, scope) {
             if (angular.isUndefined(current)) {
                 return;
