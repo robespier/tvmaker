@@ -1,24 +1,27 @@
 function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     var ls = localStorageService;
-    var channels = ls.get('channels') || [];
+    var channels = ls.get('channels') || '[]';
     /**
      * Временная заглушка для LocalStorage
      */
-    channels = [
+    $scope.channels = (channels !== '[]') ? JSON.parse(channels) : [ 
         {title: 'Первый канал'},
         {title: 'Россия'},
         {title: 'CTC'},
         {title: 'Вариант'},
         {title: 'Домашний', lineSplitter: '\n'},
     ];
-    $scope.channels = channels;
 
-    $scope.activeChannel = 5;
+    $scope.activeChannel = ls.get('activeChannel') || 0;
+    
     /**
-     * Обновлять правила при смене канала
+     * Смена канала
      */
     $scope.$watch('activeChannel', function(current) {
-        $scope.channels[current - 1].rules = fetchChannelRules(current);
+        if (!angular.isUndefined(current)) {
+            ls.set('activeChannel', current);
+            $scope.channels[current].rules = fetchChannelRules(current);
+        }
     });
 
     $scope.setChannelContent = function() {
@@ -43,16 +46,16 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     };
 
     /**
-     * Забрать правила для канала
-     * Заглушка, будут подгружаться пользовательские правила
+     * Амбициозная затея -- если правил нет, то попытаться 
+     * подобрать оптимальные. Но это потом, сейчас просто что есть.
      */
-    function fetchChannelRules() {
+    function guessFromRaw() {
         return [
             {
-                'fn': 'replace',
+                'fn': 'daySplitter',
                 'view': {
-                    'title': strings.rules.replace.title,
-                    'desc': strings.rules.replace.desc
+                    'title': strings.rules.daySplitter.title,
+                    'desc': strings.rules.daySplitter.desc
                 },
                 'params': []
             },
@@ -65,6 +68,18 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
                 'params': []
             },
         ];
+    }
+
+    /**
+     * Забрать правила для канала
+     */
+    function fetchChannelRules(channelIndex) {
+        var lsRules = ls.get('rules');
+        if (lsRules && lsRules[channelIndex]) {
+            return lsRules[channelIndex];
+        } else {
+            return guessFromRaw();
+        }
     }
 
     /**
