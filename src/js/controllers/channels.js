@@ -1,11 +1,11 @@
-function ctrlChannels($scope, localStorageService, strings, tvmRules) {
-    var ls = localStorageService;
-    var channels = ls.get('channels') || '[]';
+function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
+    var ls = tvmStorage;
+    var channels = ls.get('channels') || [];
     /**
      * Временная заглушка для LocalStorage
      */
-    $scope.channels = (channels !== '[]') ? JSON.parse(channels) : [ 
-        {title: 'Первый канал'},
+    $scope.channels = (channels.length > 0) ? channels : [ 
+        {title: 'Первый кана'},
         {title: 'Россия'},
         {title: 'CTC'},
         {title: 'Вариант'},
@@ -25,7 +25,7 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     });
 
     $scope.setChannelContent = function(channel) {
-        ls.set('channels', angular.toJson($scope.channels));
+        ls.set('channels', $scope.channels);
         buildChannel(channel);
     };
 
@@ -120,4 +120,4 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
     }
 }
 
-app.controller('ctrlChannels', ['$scope', 'localStorageService', 'strings', 'tvmRules', ctrlChannels]);
+app.controller('ctrlChannels', ['$scope', 'tvmStorage', 'strings', 'tvmRules', ctrlChannels]);
