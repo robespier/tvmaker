@@ -24,8 +24,9 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
         }
     });
 
-    $scope.setChannelContent = function() {
+    $scope.setChannelContent = function(channel) {
         ls.set('channels', angular.toJson($scope.channels));
+        buildChannel(channel);
     };
 
     $scope.strings = strings;
@@ -89,19 +90,14 @@ function ctrlChannels($scope, localStorageService, strings, tvmRules) {
      */
     $scope.splitChannel = function(channel) {
         var splitter = channel.lineSplitter || '\n';
-        return channel.content.split(splitter);
+        if (angular.isUndefined(channel.content)) {
+            return [];
+        } else {
+            return channel.content.split(splitter);
+        }
     };
 
     function buildChannel(channel) {
-        /**
-         * Содержимое левой колонки
-         * Может оказаться пустым
-         */
-        var cc = channel.content;
-        if (angular.isUndefined(cc)) {
-            return;
-        }
-
         /**
          * Правил может не быть совсем
          */
