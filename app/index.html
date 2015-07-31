@@ -35,6 +35,23 @@
                 </md-tabs>
             </div>
         </div>
+        <div layout="row" >
+            <div class="ad">AdWords</div>
+        </div>
+        <div ng-controller="ctrlDays">
+            <div layout="row">
+                <md-tabs class="channels-heading" md-dynamic-height="true" md-selected="activeDay">
+                    <md-tab ng-repeat="day in days">
+                        <md-tab-label>
+                            {{day.title}}
+                        </md-tab-label>
+                        <md-tab-body>
+                            <div layout="row" ng-bind="day.text" class="md-whiteframe-z1"></div>
+                        </md-tab-body>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </div>
         <script src="js/scripts.js"></script>
     </body>
 </html>
