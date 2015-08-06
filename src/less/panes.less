@@ -3,11 +3,11 @@
 }
 
 .pane {
-    height: @paneHeight;
+//    height: @paneHeight;
     textarea {
         width: 98%;
         min-height: @paneHeight - 6px;
-        background-color: @base5;
+        background-color: @base75;
     }
     overflow: scroll;
 }
@@ -16,9 +16,11 @@
     display: block;
     width: 100;
     white-space: pre-wrap;
+    padding: 16px;
     .source-line {
         min-height: @sourceLineHeight;
         margin: 0;
+        font-size: 13px;
         &:hover {
             background-color: @base50;
         }
@@ -27,7 +29,7 @@
         background-color: @base25;
     }
     .source-loading {
-        height: @paneHeight;
+//        height: @paneHeight;
         width: 80%;
         margin: 0 auto;
     }
@@ -35,4 +37,6 @@
 
 .pane-preview {
     white-space: pre-wrap;
+    font-size: 13px;
+    padding: 16px;
 }

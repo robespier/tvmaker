@@ -15,19 +15,23 @@
                         <md-tab-label>
                             {{channel.title}}
                         </md-tab-label>
+                            <md-button class="md-fab md-primary" md-theme="gray" aria-label="Rules">
+                            </md-button>
                         <md-tab-body>
                             <div layout="row">
                                 <div flex class="md-whiteframe-z1">
-                                    <tvm-source class="pane pane-source"></tvm-source>
-                                </div>
-                                <div flex="30" class="pane md-whiteframe-z2">
-                                    <md-list>
-                                        <md-subheader class="md-no-sticky">Any Rules</md-subheader>
-                                        <tvm-rule ng-repeat="rule in channel.rules" tvm-title="{{rule.view.title}}" tvm-descr="{{rule.view.desc}}"></tvm-rule>
-                                    </md-list>
+                                   <!-- <md-subheader class="md-no-sticky">Исходный текст</md-subheader> -->
+                                        <tvm-source class="pane pane-source"></tvm-source>
                                 </div>
                                 <div flex class="pane md-whiteframe-z1">
-                                    <tvm-preview class="pane pane-preview"></tvm-preview>
+                                    <!-- <md-subheader class="md-no-sticky">Текст с примененными правилами</md-subheader> -->
+                                        <tvm-preview class="pane pane-preview"></tvm-preview>
+                                </div>
+                                <div flex="20" class="pane md-whiteframe-z2">
+                                    <md-list>
+                                        <!-- <md-subheader class="md-no-sticky">Правила для текста</md-subheader> -->
+                                            <tvm-rule ng-repeat="rule in channel.rules" tvm-title="{{rule.view.title}}" tvm-descr="{{rule.view.desc}}"></tvm-rule>
+                                    </md-list>
                                 </div>
                             </div>
                         </md-tab-body>
