@@ -71,7 +71,17 @@ module.exports = function(grunt) {
             },
             recess: {
                 files: 'src/less/**/*.less',
-                tasks: ['recess']
+                tasks: ['recess'],
+                options: {
+                    livereload: true
+                }
+            },
+            html: {
+                files: 'app/**/*.html',
+                tasks: [],
+                options: {
+                    livereload: true
+                }
             },
         }
     });
