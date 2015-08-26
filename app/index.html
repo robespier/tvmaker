@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html ng-app="tvmaker" lang="en">
     <head>
-        <title>TV-maker</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <title>TV-maker
+        </title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
-    <body>
-        <div layout="row" >
-            <div class="ad">AdWords
-            </div>
-        </div>
-        <div>
-           <div layout="row">
-              <div class="panels">
-                  <div class="controls" ng-click="show_channels_days = !show_channels_days"> Каналы | Дни
-                  </div>
-                    <div ng-hide="show_channels_days">
+<body>
+    <div class="ad"> AdWords
+    </div>
+        <div layout="row">
+
+
+
+        <!--
+            Левая колонка
+        -->
+            <div class="panels">
+                    <div class="controls" ng-click="show_channels_days = !show_channels_days">
+                        Каналы
+                    </div>
+                <div ng-hide="show_channels_days">
+                    <!--
+                        TV-каналы
+                    -->
                         <ul class="channels-days" style="margin: 0">
-                              <li>Первый канал</li>
-                              <li>Россия</li>
-                              <li>CTC</li>
-                              <li>Вариант</li>
-                              <li>Домашний</li>
+                            <li>Первый канал</li>
+                            <li>Россия</li>
+                            <li>CTC</li>
+                            <li>Вариант</li>
+                            <li>Домашний</li>
                         </ul>
-                        <div style="padding: 36px; width: 200px; position: absolute; bottom: 50px; font-size: 14px; color: silver">
+                    <!--
+                        Подсказки
+                    -->
+                        <div style="padding: 16px; width: 9%; position: absolute; bottom: 50px; font-size: 14px; color: silver">
                             Перетащите канал вверх/вниз списка для изменения порядка расположения каналов в окончательной сборке.
                         </div>
-                        <div style="position: absolute; bottom: 0px; list-style-type: none; margin: 0 32px; font-size: 14px">
-                            <div class="controls" style="display: inline-block" ng-click="show_load_source = !show_load_source"> + </div>
-                            <div class="controls" style="display: inline-block"> Rename </div>
-                            <div class="controls" style="display: inline-block"> Del </div>
+                    <!--
+                        Контролы
+                    -->
+                        <div style="position: absolute; bottom: 0px; margin: 0 0; font-size: 14px">
+                            <div class="controls" style="display: inline-block" ng-click="show_load_source = !show_load_source">
+                                Add
+                            </div>
+                            <div class="controls" style="display: inline-block">
+                                Delete
+                            </div>
                         </div>
                     </div>
+
+                    <!--
+                        Дней недели
+                    -->
                         <ul class="channels-days" style="margin: 0" ng-show="show_channels_days">
                             <li>Понедельник</li>
                             <li>Вторник</li>
@@ -41,42 +62,79 @@
                             <li>Суббота</li>
                             <li>Воскресенье</li>
                         </ul>
-              </div>
-              <div flex style="text-align: center">
-                  <div class="base_controls" ng-click="show_load_source = !show_load_source"> Загрузить
-                  </div>
-                      <div class="load_source" ng-show="show_load_source">
-                          Вставьте сюда текст программы канала или перетащите файл (-ы) с программой.
-                      </div>
-                      <div style="text-align: left; margin: 0 32px">
-                          Content
-                      </div>
-                    <div class="bottom_div">
-                            <div class="base_controls"> Сохранить
-                            </div>
-                            <div class="controls" style="display: inline-block" title="Настройки сохранения выходных файлов">
-                              =
-                            </div>
+                        </div>
+
+
+
+        <!--
+            Центральная колонка
+        -->
+            <div flex style="text-align: center">
+            <!--
+                Контрол
+            -->
+                <div class="base_controls" ng-click="show_load_source = !show_load_source">
+                    Загрузить
+                </div>
+                    <div class="load_source" ng-show="show_load_source">
+                        Вставьте сюда текст программы канала или перетащите файл (-ы) с программой.
                     </div>
-              </div>
-              <div flex="25" class="panels">
-                  <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правила | Словарь
-                  </div>
-                  <div ng-hide="show_rules_dictionary" style="margin: 0 32px">
-                            Правила
-                      <div style="position: absolute; bottom: 0px; list-style-type: none; margin: 0; font-size: 14px">
-                          <div class="controls" style="display: inline-block"> Все </div>
-                          <div class="controls" style="display: inline-block"> Примененные </div>
-                          <div class="controls" style="display: inline-block"> Рекомендуемые </div>
-                      </div>
-                  </div>
-                  <div ng-show="show_rules_dictionary" style="margin: 0 32px">
-                            Словарь
-                  </div>
-              </div>
-          </div>
-      </div>
-      <script src="js/scripts.js"></script>
-      <script src="//localhost:35729/livereload.js"></script>
-    </body>
+                <!--
+                    Содержимое
+                -->
+                    <div style="text-align: center; margin: 32px 32px">
+                        Source | Preview
+                    </div>
+            <!--
+                Контрол
+            -->
+                <div class="base_controls" style="align-items: flex-end">
+                    Сохранить
+                </div>
+            </div>
+
+
+
+<!--
+    Правая колонка
+-->
+            <div class="panels">
+                <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правила
+                </div>
+                    <div ng-hide="show_rules_dictionary" style="margin: 0 32px">
+                        </br>
+        <!--
+            Правила
+        -->
+                Правила
+                    <div>
+                        </br>
+                            Бла-бла-бла
+                    </div>
+                    <!--
+                        Контролы
+                    -->
+                        <div style="position: absolute; bottom: 0px; right: 0px; font-size: 14px">
+                            <div class="controls" style="display: inline-block"> All </div>
+                            <div class="controls" style="display: inline-block"> Applyed </div>
+                        </div>
+                    </div>
+
+                <div ng-show="show_rules_dictionary" style="margin: 0 32px">
+                    </br>
+
+        <!--
+            Словарь
+        -->
+                    Словарь
+                        <div>
+                            </br>
+                                Бла-бла-бла
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <script src="js/scripts.js"></script>
+    <script src="//localhost:35729/livereload.js"></script>
+</body>
 </html>

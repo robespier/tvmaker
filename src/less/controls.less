@@ -9,25 +9,20 @@
     cursor: pointer;
     display: inline-block;
     background-color: @base_controls;
-}
-.base_controls:hover {
-    background-color: @base75;
+        &:hover {
+            background-color: @base75;
+        }
 }
 .controls {
-    padding: @baseUnit*2 @baseUnit*4;
+    padding: @baseUnit*2 @baseUnit*5;
     width: auto;
     height: @baseUnit*6;
     color: white;
-    background-color: @base25;
-    display: block;
-    text-align:center;
-    cursor: pointer;
-}
-.controls:hover {
     background-color: @base_controls;
-}
-.bottom_div {
-    position: absolute;
-    bottom: 0px;
-    left: 37%;;
+        &:hover {
+            background-color: @base75;
+        }
+    display: block;
+    text-align: center;
+    cursor: pointer;
 }
