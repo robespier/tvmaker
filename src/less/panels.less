@@ -4,22 +4,23 @@
 }
 .channels-days {
     float: left;
+    -webkit-padding-start: 0px;
 }
 
 .channels-days > li {
     list-style-type: none;
-    height: 48px;
-    line-height: 48px;
+    height: @baseUnit*12;
+    line-height: @baseUnit*12;
     background-color: @baseColor;
-    margin-bottom: 5px;
-    padding-right: 16px;
-    padding-left: 16px;
+    margin-bottom: @baseUnit;
+    padding-right: @baseUnit*4;
+    padding-left: @baseUnit*4;
     cursor: pointer;
 }
 .load_source {
-    height: 300px;
-    line-height: 300px;
-    margin: 24px;
+    height: @baseUnit*75;
+    line-height: @baseUnit*75;
+    margin: @baseUnit*6;
     border: 1px;
     border-style: dashed;
 }
