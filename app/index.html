@@ -20,17 +20,16 @@
                     <div class="controls" ng-click="show_channels_days = !show_channels_days">
                         Каналы
                     </div>
-                <div ng-hide="show_channels_days">
+                    <div ng-hide="show_channels_days">
                     <!--
                         TV-каналы
                     -->
-                        <ul class="channels-days" style="margin: 0">
-                            <li>Первый канал</li>
-                            <li>Россия</li>
-                            <li>CTC</li>
-                            <li>Вариант</li>
-                            <li>Домашний</li>
-                        </ul>
+                    <div ng-controller="ctrlChannels">
+                        <md-list class="channels-days" style="margin: 0" md-selected="activeChannel">
+                            <md-list-item ng-repeat="channel in channels"> {{channel.title}}
+                            </md-list-item>
+                        </md-list>
+                    </div>
                     <!--
                         Подсказки
                     -->
@@ -53,16 +52,15 @@
                     <!--
                         Дней недели
                     -->
-                        <ul class="channels-days" style="margin: 0" ng-show="show_channels_days">
-                            <li>Понедельник</li>
-                            <li>Вторник</li>
-                            <li>Среда</li>
-                            <li>Четверг</li>
-                            <li>Пятница</li>
-                            <li>Суббота</li>
-                            <li>Воскресенье</li>
-                        </ul>
+                    <div ng-show="show_channels_days">
+                        <div ng-controller="ctrlDays">
+                            <md-list class="channels-days" style="margin: 0" md-selected="activeDay">
+                                <md-list-item ng-repeat="day in days"> {{day.title}}
+                                </md-list-item>
+                            </md-list>
                         </div>
+                    </div>
+            </div>
 
 
 
