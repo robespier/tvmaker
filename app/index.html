@@ -18,14 +18,14 @@
         -->
             <div class="panels">
                     <div class="controls" ng-click="show_channels_days = !show_channels_days">
-                        Каналы
+                        Каналы | Дни
                     </div>
                     <div ng-hide="show_channels_days">
                     <!--
                         TV-каналы
                     -->
                     <div ng-controller="ctrlChannels">
-                        <md-list class="channels-days" style="margin: 0" md-selected="activeChannel">
+                        <md-list class="channels-days" md-selected="activeChannel">
                             <md-list-item ng-repeat="channel in channels"> {{channel.title}}
                             </md-list-item>
                         </md-list>
@@ -54,8 +54,8 @@
                     -->
                     <div ng-show="show_channels_days">
                         <div ng-controller="ctrlDays">
-                            <md-list class="channels-days" style="margin: 0" md-selected="activeDay">
-                                <md-list-item ng-repeat="day in days"> {{day.title}}
+                            <md-list class="channels-days" md-selected="activeDay">
+                                <md-list-item ng-repeat="day in days" style="height: 10vh; line-height: 10vh"> {{day.title}}
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -86,7 +86,7 @@
             <!--
                 Контрол
             -->
-                <div class="base_controls" style="align-items: flex-end">
+                <div class="base_controls" style="position: absolute; bottom: 0">
                     Сохранить
                 </div>
             </div>

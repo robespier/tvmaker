@@ -3,13 +3,13 @@
 }
 .panels {
     background-color: @base5;
-    height: auto;
+    height: 85vh;
 }
 .channels-days {
     float: left;
     -webkit-padding-start: 0px;
+    padding-top: 0;
 }
-
 .channels-days > md-list-item {
     list-style-type: none;
     height: @baseUnit*12;
@@ -18,8 +18,11 @@
         &:hover {
             background-color: @baseColor;
         };
-    padding-right: @baseUnit*4;
-    padding-left: @baseUnit*4;
+    font-weight: normal;
+        &:hover {
+            font-weight: bold;
+        }
+    padding: 0 @baseUnit*4;
     cursor: pointer;
 }
 .load_source {
