@@ -4,7 +4,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
     /**
      * Временная заглушка для LocalStorage
      */
-    $scope.channels = (channels.length > 0) ? channels : [ 
+    $scope.channels = (channels.length > 0) ? channels : [
         {title: 'Первый канал'},
         {title: 'Россия'},
         {title: 'CTC'},
@@ -13,7 +13,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
     ];
 
     $scope.activeChannel = ls.get('activeChannel') || 0;
-    
+
     /**
      * Смена канала
      */
@@ -25,6 +25,11 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
             }
         }
     });
+
+    $scope.setActiveChannel = function() {
+        $scope.activeChannel = this.$index;
+        ls.set('activeChannel', this.$index);
+    };
 
     $scope.setChannelContent = function(channel) {
         ls.set('channels', $scope.channels);
@@ -50,7 +55,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
     };
 
     /**
-     * Амбициозная затея -- если правил нет, то попытаться 
+     * Амбициозная затея -- если правил нет, то попытаться
      * подобрать оптимальные. Но это потом, сейчас просто что есть.
      */
     function guessFromRaw() {

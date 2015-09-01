@@ -18,6 +18,11 @@ function ctrlDays($scope, tvmStorage, strings) {
     }
 
     loadDays();
+
+    $scope.setActiveDay = function() {
+        $scope.activeDay = this.$index;
+        ls.set('activeDay', this.$index);
+    };
 }
 
 app.controller('ctrlDays', ['$scope', 'tvmStorage', 'strings', ctrlDays]);

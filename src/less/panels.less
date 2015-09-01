@@ -1,6 +1,3 @@
-.content {
-    display: flex;
-}
 .panels {
     background-color: @base5;
     height: 85vh;
@@ -10,33 +7,24 @@
     -webkit-padding-start: 0px;
     padding-top: 0;
 }
-.channels-days > md-list-item {
-    list-style-type: none;
+.md-list-item {
     height: @baseUnit*12;
     line-height: @baseUnit*12;
+    cursor: pointer;
+}
+.md-no-style {
     background-color: inherit;
         &:hover {
             background-color: @baseColor;
         };
-    cursor: pointer;
-}
-.load_source {
-    justify-content: center;
-    height: @baseUnit*75;
-    line-height: @baseUnit*75;
-    margin: @baseUnit*3 @baseUnit*40;
-    border: 1px;
-    border-style: dashed;
-}
-.md-list-item-inner {
     font-weight: normal;
         &:hover {
             font-weight: bold;
         };
 }
-.md-no-style {
-    font-weight: normal;
-        &:hover {
-            font-weight: bold;
-        };
+.item-active {
+    background-color: @baseColor;
+}
+.item-diabled {
+    background-color: @base5;
 }
