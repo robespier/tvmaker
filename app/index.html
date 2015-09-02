@@ -18,7 +18,7 @@
         -->
             <div class="panels">
                     <div class="controls" ng-click="show_channels_days = !show_channels_days">
-                        Каналы Дни
+                        Каналы | Дни
                     </div>
                     <div ng-hide="show_channels_days">
                     <!--
@@ -26,7 +26,7 @@
                     -->
                     <div ng-controller="ctrlChannels">
                         <md-list class="channels-days" md-selected="activeChannel">
-                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()" ng-class="activeChannel === $index ? 'item-active' : 'item-diabled'"> {{channel.title}}
+                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()" ng-class="activeChannel === $index ? 'item-enabled' : 'item-disabled'"> {{channel.title}}
                             </md-list-item>
                         </md-list>
                     </div>
@@ -55,7 +55,7 @@
                     <div ng-show="show_channels_days">
                         <div ng-controller="ctrlDays">
                             <md-list class="channels-days" md-selected="activeDay">
-                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()" ng-class="activeDay === $index ? 'item-active' : 'item-diabled'"> {{day.title}}
+                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()" ng-class="activeDay === $index ? 'item-enabled' : 'item-disabled'"> {{day.title}}
                                 </md-list-item>
                             </md-list>
                         </div>
