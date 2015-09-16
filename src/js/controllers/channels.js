@@ -5,7 +5,7 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
      * Временная заглушка для LocalStorage
      */
     $scope.channels = (channels.length > 0) ? channels : [
-        {title: 'Первый канал'},
+        {title: 'Первый'},
         {title: 'Россия'},
         {title: 'CTC'},
         {title: 'Вариант'},

@@ -1,31 +1,49 @@
 .panels {
     background-color: @base5;
-    height: 85vh;
 }
 .channels-days {
     float: none;
     -webkit-padding-start: 0px;
-    padding-top: 0;
+    padding: 0;
 }
-.md-list-item {
-    height: @baseUnit*12;
-    line-height: @baseUnit*12;
-    cursor: pointer;
+.date {
+    :first-child {
+        padding: 0;
+        margin: 0 @baseUnit*5;
+        font-size: 0.8em;
+        min-height: 0;
+    };
+    :nth-child(2) {
+        padding: 0;
+        margin: 0 @baseUnit*5;
+        font-size: 4.5em;
+        min-height: 0;
+        color: @base15;
+    };
+    :last-child {
+        display: block;
+        text-align: center;
+        padding: 0;
+        font-size: 1em;
+        min-height: 0;
+    };
+}
+.md-list-item-inner {
+    height: @baseUnit*25;
 }
 .md-no-style {
-    height: 10vh;
-    line-height: 10vh;
     background-color: inherit;
         &:hover {
             background-color: @baseColor;
         };
+    font-family: 'Prosto Sans';
     font-weight: normal;
         &:hover {
             font-weight: bold;
         };
     color: inhterit;
         &:hover {
-            color: @base100;
+            color: @addColorControl;
         };
 }
 .item-enabled {
@@ -34,5 +52,5 @@
 }
 .item-disabled {
     background-color: @base5;
-    color: @base25;
+    color: @base15;
 }

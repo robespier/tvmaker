@@ -5,6 +5,7 @@
         </title>
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="css/styles.css">
+            <link rel="stylesheet" type="text/css" href="css/fonts.css">
     </head>
 <body>
     <div class="ad"> AdWords
@@ -16,17 +17,22 @@
         <!--
             Левая колонка
         -->
-            <div class="panels">
+            <div flex='10' class="panels">
                     <div class="controls" ng-click="show_channels_days = !show_channels_days">
-                        Каналы | Дни
+                        КаналыДны
                     </div>
                     <div ng-hide="show_channels_days">
                     <!--
                         TV-каналы
                     -->
                     <div ng-controller="ctrlChannels">
-                        <md-list class="channels-days" md-selected="activeChannel">
-                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()" ng-class="activeChannel === $index ? 'item-enabled' : 'item-disabled'"> {{channel.title}}
+                        <md-list class="channels-days">
+                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()" ng-class="activeChannel === $index ? 'item-enabled' : 'item-disabled'">
+<!--                                <div class="label">
+
+                                </div>
+-->                             <div class="title" ng-bind="channel.title">
+                                </div>
                             </md-list-item>
                         </md-list>
                     </div>
@@ -50,12 +56,18 @@
                     </div>
 
                     <!--
-                        Дней недели
+                        Дни недели
                     -->
-                    <div ng-show="show_channels_days">
+                    <div ng-show
+                    ="show_channels_days">
                         <div ng-controller="ctrlDays">
-                            <md-list class="channels-days" md-selected="activeDay">
-                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()" ng-class="activeDay === $index ? 'item-enabled' : 'item-disabled'"> {{day.title}}
+                            <md-list class="channels-days">
+                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()" ng-class="activeDay === $index ? 'item-enabled' : 'item-disabled'">
+                                    <md-list class="date">
+                                        <md-list-item ng-bind="getCurrentDate() | date: 'MMMM'"></md-list-item>
+                                        <md-list-item ng-bind="getCurrentDate() | date: 'd'"></md-list-item>
+                                        <md-list-item ng-bind="day.title"></md-list-item>
+                                    </md-list>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -83,12 +95,14 @@
                     <div style="text-align: center; margin: 32px 32px">
                         Source | Preview
                     </div>
-            <!--
-                Контрол
-            -->
-                <div class="base_controls" style="position: absolute; bottom: 0">
-                    Сохранить
-                </div>
+
+
+                <!--
+                    Контрол
+                -->
+                    <div class="base_controls" style="position: absolute; bottom: 0; margin-left: -70px">
+                        Сохранить
+                    </div>
             </div>
 
 
@@ -96,8 +110,8 @@
 <!--
     Правая колонка
 -->
-            <div class="panels">
-                <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правила
+            <div flex='10' class="panels">
+                <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правиловарь
                 </div>
                     <div ng-hide="show_rules_dictionary" style="margin: 0 32px">
                         </br>
@@ -132,6 +146,7 @@
                     </div>
             </div>
         </div>
+
     <script src="js/scripts.js"></script>
     <script src="//localhost:35729/livereload.js"></script>
 </body>

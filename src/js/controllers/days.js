@@ -23,6 +23,11 @@ function ctrlDays($scope, tvmStorage, strings) {
         $scope.activeDay = this.$index;
         ls.set('activeDay', this.$index);
     };
+
+    $scope.getCurrentDate = function() {
+        var current_date = new Date();
+        return current_date;
+    };
 }
 
 app.controller('ctrlDays', ['$scope', 'tvmStorage', 'strings', ctrlDays]);
