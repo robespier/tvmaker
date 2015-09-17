@@ -1,11 +1,32 @@
-.ad {
-    height: @baseUnit*36;
-    line-height: @baseUnit*36;
+.header {
+    position: relative;
     width: 100%;
     background-color: @base50;
+    font-family: Prosto Sans, sans-serif;
     text-align: center;
-    font-family: News Cycle, sans-serif;
-    font-size: @baseUnit*12;
-    font-weight: bold;
+}
+.tvm_label {
+    height: @baseUnit*36;
+    line-height: @baseUnit*36;
+    margin: 0;
+    text-align: center;
+    font-size: @baseUnit*15;
+    text-shadow : 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: @baseColorControls;
+}
+.descript {
+    position: absolute;
+    top: @baseUnit*2;
+    right: 0;
+    left: 0;
+    font-size: 16px;
+    color: @base25;
+}
+.slogan {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 16px;
+    color: @base25;
 }

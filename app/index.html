@@ -8,8 +8,13 @@
             <link rel="stylesheet" type="text/css" href="css/fonts.css">
     </head>
 <body>
-    <div class="ad"> AdWords
+
+    <div class="header">
+        <p class="descript"> Автоматизация верстки TV-программ для печатных изданий</p>
+        <p class="tvm_label"> TVM<span style="font-size: 45px">aker</span></p>
+        <p class="slogan"> просто. удобно. бесплатно</p>
     </div>
+
         <div layout="row">
 
 
@@ -17,9 +22,9 @@
         <!--
             Левая колонка
         -->
-            <div flex='10' class="panels">
+            <div class="panels">
                     <div class="controls" ng-click="show_channels_days = !show_channels_days">
-                        КаналыДны
+                        Каналы
                     </div>
                     <div ng-hide="show_channels_days">
                     <!--
@@ -39,12 +44,12 @@
                     <!--
                         Подсказки
                     -->
-                        <div style="padding: 16px; width: 9%; position: absolute; bottom: 50px; font-size: 14px; color: silver">
+                        <md-tooltip>
                             Перетащите канал вверх/вниз списка для изменения порядка расположения каналов в окончательной сборке.
-                        </div>
+                        </md-tooltip>
                     <!--
                         Контролы
-                    -->
+
                         <div style="position: absolute; bottom: 0px; margin: 0 0; font-size: 14px">
                             <div class="controls" style="display: inline-block" ng-click="show_load_source = !show_load_source">
                                 Add
@@ -53,6 +58,7 @@
                                 Delete
                             </div>
                         </div>
+                    -->
                     </div>
 
                     <!--
@@ -100,7 +106,7 @@
                 <!--
                     Контрол
                 -->
-                    <div class="base_controls" style="position: absolute; bottom: 0; margin-left: -70px">
+                    <div class="base_controls" style="position: absolute; bottom: 0; margin-left: -86px">
                         Сохранить
                     </div>
             </div>
@@ -110,8 +116,8 @@
 <!--
     Правая колонка
 -->
-            <div flex='10' class="panels">
-                <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правиловарь
+            <div class="panels">
+                <div class="controls" ng-click="show_rules_dictionary = !show_rules_dictionary"> Правила
                 </div>
                     <div ng-hide="show_rules_dictionary" style="margin: 0 32px">
                         </br>
@@ -125,11 +131,12 @@
                     </div>
                     <!--
                         Контролы
-                    -->
+
                         <div style="position: absolute; bottom: 0px; right: 0px; font-size: 14px">
                             <div class="controls" style="display: inline-block"> All </div>
                             <div class="controls" style="display: inline-block"> Applyed </div>
                         </div>
+                    -->
                     </div>
 
                 <div ng-show="show_rules_dictionary" style="margin: 0 32px">
