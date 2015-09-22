@@ -1,3 +1,7 @@
+body {
+    background-image: url(..//png/background.png);
+    background-repeat: repeat-y;
+    }
 .panels {
     padding: 0 0;
     background-color: @base5;
@@ -9,7 +13,6 @@
 .channel_logo {
     width: @baseUnit*40;
     height: @baseUnit*25;
-    text-shadow : 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .date {
     :first-child {
@@ -19,11 +22,10 @@
         min-height: 0;
     };
     :nth-child(2) {
-        padding: 0 @baseUnit*3;
+        padding: 0 @baseUnit*5;
         margin: 0 @baseUnit*5;
-        font-size: 4.5em;
+        font-size: 4em;
         min-height: 0;
-        color: @base15;
     };
     :last-child {
         padding: 0 @baseUnit*3;
@@ -34,14 +36,12 @@
     };
 }
 md-list-item.md-no-style {
-  position: relative;
-  padding: 0px 0px;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.md-list-item-inner {
-    height: @baseUnit*25;
+    position: relative;
+    padding: 0px 0px;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+
 }
 .md-no-style {
     background-color: inherit;
@@ -65,4 +65,5 @@ md-list-item.md-no-style {
 .item-disabled {
     background-color: @base5;
     color: @base15;
+    opacity: 0.2;
 }
