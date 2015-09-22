@@ -5,11 +5,11 @@ function ctrlChannels($scope, tvmStorage, strings, tvmRules) {
      * Временная заглушка для LocalStorage
      */
     $scope.channels = (channels.length > 0) ? channels : [
-        {title: 'Первый'},
-        {title: 'Россия'},
-        {title: 'CTC'},
-        {title: 'Вариант'},
-        {title: 'Домашний', lineSplitter: '\n'},
+        {title: 'Первый', label: 'logo_01.png'},
+        {title: 'Россия', label: 'logo_02.png'},
+        {title: 'CTC', label: 'logo_03.png'},
+        {title: 'Вариант', label: 'logo_04.png'},
+        {title: 'Домашний', label: 'logo_05.png', lineSplitter: '\n'},
     ];
 
     $scope.activeChannel = ls.get('activeChannel') || 0;
