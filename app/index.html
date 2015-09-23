@@ -32,12 +32,15 @@
                     -->
                     <div ng-controller="ctrlChannels">
                         <md-list class="channels-days">
-                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()" ng-class="activeChannel === $index ? 'item-enabled' : 'item-disabled'">
-<!--
+                            <md-list-item ng-repeat="channel in channels" ng-click="setActiveChannel()"
+                            aria-label="{{channel.title}}" ng-class="activeChannel === $index ? 'item-enabled' : 'item-disabled'">
+<!--                                <div class="label">
+
+                                </div>
                             <div class="title" ng-bind="channel.title">
                                 </div>
 -->
-                                <img class="channel_logo" ng-src="png/{{channel.label}}">
+                                <img class="channel_logo" ng-src="png/{{channel.label}}" alt="logo of channel">
                             </md-list-item>
                         </md-list>
                     </div>
@@ -68,7 +71,8 @@
                     ="show_channels_days">
                         <div ng-controller="ctrlDays">
                             <md-list class="channels-days">
-                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()" ng-class="activeDay === $index ? 'item-enabled' : 'item-disabled'">
+                                <md-list-item ng-repeat="day in days" ng-click="setActiveDay()"
+                                aria-label="{{day.title}}" ng-class="activeDay === $index ? 'item-enabled' : 'item-disabled'">
                                     <md-list class="date">
                                         <md-list-item ng-bind="getCurrentDate() | date: 'MMMM'"></md-list-item>
                                         <md-list-item ng-bind="getCurrentDate() | date: 'd'"></md-list-item>
